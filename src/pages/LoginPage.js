@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./../context/auth.context";
 
-const API_URL = "http://localhost:5005";
+const API_URL = "http://localhost:5005"; // this is best moved to the .env
 
 
 function LoginPage(props) {
@@ -26,8 +26,8 @@ function LoginPage(props) {
       .then((response) => {
         console.log("JWT token", response.data.authToken);
         
-        const token = response.data.authToken;
-        logInUser(token);
+        const JWTToken = response.data.authToken;
+        logInUser(JWTToken);
         props.history.push("/");
       })
       .catch((error) => {
